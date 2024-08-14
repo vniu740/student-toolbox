@@ -1,9 +1,17 @@
 import "./css/course.css";
+import { useState } from "react";
 
-export default function course(props) {
+
+export default function Course(props) {
+  const [showAssignments, setShowAssignments] = useState(false);
+
+  const handleCourseClick = () => {
+    setShowAssignments(!showAssignments);
+  };
+
   return (
     <div className="course">
-      <div className="courseInfo">
+      <div className="courseInfo" onClick={handleCourseClick}>
         <div>
           <div className="courseName">Course Name: {props.courseName} </div>
           <div className="letterGrade">X</div>
@@ -19,6 +27,12 @@ export default function course(props) {
           </button>
         </div>
       </div>
+      {showAssignments && (
+        <div className="courseAssignments">
+          <h1>Will be assignment component</h1>
+          <button>New Assignment +</button>
+        </div>
+      )}
     </div>
   );
 }
