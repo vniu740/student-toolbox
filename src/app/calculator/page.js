@@ -4,6 +4,10 @@ import "./calculator.css";
 import { useState } from "react";
 
 export default function CalculatorPage() {
+  
+  const crypto = window.crypto || window.msCrypto;
+  let array = new Uint32Array(1);
+  
   const [isInputNameEmpty, setIsInputNameEmpty] = useState(true);
   const [courses, setCourses] = useState([]); // courses array stores course objects (not course components)
   const [courseName, setCourseName] = useState();
@@ -15,7 +19,7 @@ export default function CalculatorPage() {
   };
 
   const handleNewCourse = () => {
-    setCourses([...courses, { id: Math.random(), courseName }]);
+    setCourses([...courses, { id:crypto.getRandomValues(array), courseName }]);
   };
 
   const handleCourseDelete = (id) => {
