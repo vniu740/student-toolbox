@@ -10,7 +10,7 @@ export default function CalculatorPage() {
           <button>+</button>
         </div>
       </div>
-      <div className="overallGrade">Current GPA:{gpa}/9</div>
+      <div className="overallGrade">Current GPA:/9</div>
       <div className="courses">
       </div>
     </main>
