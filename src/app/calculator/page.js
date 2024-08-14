@@ -4,13 +4,13 @@ import "./calculator.css";
 import { useState } from "react";
 
 export default function CalculatorPage() {
-  const [isNameEmpty, setIsNameEmpty] = useState(true);
-  const [courses, setCourses] = useState([]);
+  const [isInputNameEmpty, setIsInputNameEmpty] = useState(true);
+  const [courses, setCourses] = useState([]); // courses array stores course objects (not course components)
   const [courseName, setCourseName] = useState();
 
   const handleNewCourseInput = (event) => {
     const inputValue = event.target.value;
-    setIsNameEmpty(inputValue.trim() === "");
+    setIsInputNameEmpty(inputValue.trim() === "");
     setCourseName(inputValue);
   };
 
@@ -18,11 +18,9 @@ export default function CalculatorPage() {
     setCourses([...courses, { id: Math.random(), courseName }]);
   };
 
-
   const handleCourseDelete = (id) => {
     setCourses(courses.filter((course) => course.id !== id));
   };
-
 
   return (
     <main>
@@ -35,12 +33,14 @@ export default function CalculatorPage() {
               onChange={handleNewCourseInput}
               value={courseName}
             ></input>
-            <button disabled={isNameEmpty} onClick={handleNewCourse}>
+            <button disabled={isInputNameEmpty} onClick={handleNewCourse}>
               +
             </button>
           </div>
         </div>
+
         <div className="overallGrade">Current GPA:/9</div>
+
         <div className="courses">
           {courses.map((course) => (
             <Course

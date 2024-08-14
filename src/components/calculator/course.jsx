@@ -27,6 +27,7 @@ export default function Course(props) {
           </button>
         </div>
       </button>
+      
       {showAssignments && (
         <div className="courseAssignments">
           <h3>TODO: assignments</h3>
