@@ -1,6 +1,6 @@
 import "./css/course.css";
 import { useState } from "react";
-
+import PropTypes from "prop-types"; // Import PropTypes
 
 export default function Course(props) {
   const [showAssignments, setShowAssignments] = useState(false);
@@ -11,7 +11,7 @@ export default function Course(props) {
 
   return (
     <div className="course">
-      <div className="courseInfo" onClick={handleCourseClick}>
+      <button className="courseInfo" onClick={handleCourseClick} type="button">
         <div>
           <div className="courseName">Course Name: {props.courseName} </div>
           <div className="letterGrade">X</div>
@@ -26,13 +26,19 @@ export default function Course(props) {
             x
           </button>
         </div>
-      </div>
+      </button>
       {showAssignments && (
         <div className="courseAssignments">
-          <h1>Will be assignment component</h1>
+          <h3>TODO: assignments</h3>
           <button>New Assignment +</button>
         </div>
       )}
     </div>
   );
 }
+
+Course.propTypes = {
+  courseName: PropTypes.string.isRequired,
+  courseDelete: PropTypes.func.isRequired,
+  id: PropTypes.isRequired,
+};
