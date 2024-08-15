@@ -1,6 +1,7 @@
 import "./css/course.css";
 import { useState } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
+import CourseHeader from "./courseHeader";
 
 export default function Course(props) {
   const [showAssignments, setShowAssignments] = useState(false);
@@ -11,22 +12,7 @@ export default function Course(props) {
 
   return (
     <div className="course">
-      <button className="courseInfo" onClick={handleCourseClick} type="button">
-        <div>
-          <div className="courseName">Course Name: {props.courseName} </div>
-          <div className="letterGrade">X</div>
-        </div>
-        <div className="gradeSummary">
-          <div className="totalGrade">Total %: %</div>
-          <div className="averageGrade">Average %: %</div>
-          <button
-            className="deleteCourseBtn "
-            onClick={() => props.courseDelete(props.id)}
-          >
-            x
-          </button>
-        </div>
-      </button>
+      <CourseHeader courseName={props.courseName} onClick={handleCourseClick} onDelete={() => props.courseDelete(props.id)}></CourseHeader>
       
       {showAssignments && (
         <div className="courseAssignments">

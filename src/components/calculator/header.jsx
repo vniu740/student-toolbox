@@ -1,4 +1,4 @@
-
+import PropTypes from "prop-types"; 
 
 export default function CalculatorHeader(props) {
     return (
@@ -7,12 +7,18 @@ export default function CalculatorHeader(props) {
         <div className="createCourse">
           <input
             placeholder="Enter Course Name"
-            onChange={props.newCourseInput}
+            onChange={props.onNewCourseInput}
           ></input>
-          <button disabled={props.input} onClick={props.newCourse}>
+          <button disabled={props.input} onClick={props.onNewCourse}>
             +
           </button>
         </div>
       </div>
     )
 }
+
+CalculatorHeader.propTypes = {
+  onNewCourseInput: PropTypes.func.isRequired,
+  onNewCourse: PropTypes.func.isRequired,
+  input: PropTypes.isRequired,
+};
