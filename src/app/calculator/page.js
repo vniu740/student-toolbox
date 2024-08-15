@@ -1,5 +1,6 @@
 "use client";
 import Course from "@/components/calculator/course";
+import CalculatorHeader from "@/components/calculator/header";
 import "./calculator.css";
 import { useState } from "react";
 
@@ -29,19 +30,7 @@ export default function CalculatorPage() {
   return (
     <main>
       <div className="gradeCalculator">
-        <div className="header">
-          <h1>Grade Calculator</h1>
-          <div className="createCourse">
-            <input
-              placeholder="Enter Course Name"
-              onChange={handleNewCourseInput}
-              value={courseName}
-            ></input>
-            <button disabled={isInputNameEmpty} onClick={handleNewCourse}>
-              +
-            </button>
-          </div>
-        </div>
+        <CalculatorHeader newCourseInput={handleNewCourseInput} newCourse={handleNewCourse} input={isInputNameEmpty}></CalculatorHeader>
 
         <div className="overallGrade">Current GPA:/9</div>
 
