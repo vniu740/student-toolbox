@@ -1,6 +1,6 @@
 import LayoutAvatar from "@/components/auth/layout-avatar"
 import { SessionProvider } from "next-auth/react"
-import Header from "../components/header"
+import Header from "@/components/headerAllPages"
 import "./globals.css"
 
 export const metadata = {
@@ -12,11 +12,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <SessionProvider>
-          <LayoutAvatar />
-          <Header />
-          {children}
+          <Header></Header>
+          <div className="margins">{children}</div>
         </SessionProvider>
       </body>
     </html>
-  )
+  );
 }
