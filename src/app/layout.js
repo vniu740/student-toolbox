@@ -1,4 +1,3 @@
-import LayoutAvatar from "@/components/auth/layout-avatar"
 import { SessionProvider } from "next-auth/react"
 import Header from "@/components/headerAllPages"
 import "./globals.css"
